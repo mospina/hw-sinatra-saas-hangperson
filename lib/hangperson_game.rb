@@ -17,6 +17,7 @@ class HangpersonGame
 
   def guess(letter)
     raise ArgumentError, "#{letter} is not valid." unless /[a-zA-Z]/.match(letter)
+    raise ArgumentError, "An empty character is not valid." if letter.empty?
 
     letter = letter.downcase 
     return false if @guesses.include?(letter) || @wrong_guesses.include?(letter)
